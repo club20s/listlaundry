@@ -19,9 +19,13 @@ db = client[DB_NAME]
 
 app = Flask(__name__)
 
-# homes
 @app.route('/')
 def home():
+    return render_template('homes.html')
+
+# homes
+@app.route('/home')
+def homes():
    return render_template('index.html')
 
 @app.route("/bucket/done", methods=["POST"])
@@ -44,7 +48,7 @@ def bucket_post():
     description = request.form.get('description_give')
 
     today =datetime.now()
-    time = today.strftime('%d-%M-%Y')
+    time = today.strftime('%H:%M:%S')
 
     count = db.bucket.count_documents({})
     num = count + 1

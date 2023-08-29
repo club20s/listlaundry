@@ -3,8 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <meta property="og:title" content="Pagewiralaundry" />
+    <meta property="og:description" content="FREE DELIVERY AND PICK UP SERVICE" />
+    <meta property="og:image" content="{{ url_for('static', filename='icon03.png') }}" />
+
+    <title>PageWiraLaundry</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -14,6 +20,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
 
+    <link rel="icon" href="static/wiralogo.png" type="image/png">
+
     <style>
         * {
             font-family: 'Abril Fatface', cursive;
@@ -21,18 +29,19 @@
 
         .container {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 100vh;
+            height: 80vh;
             /* Menyesuaikan dengan tinggi viewport */
-            padding: 20px;
+            /*             padding: 20px; */
             /* Atur padding yang lebih besar untuk perangkat kecil */
+            width: 90%;
+            max-width: 1200px;
+            /* Opsional: Batasi lebar maksimal jika diperlukan */
+            margin: 0 auto;
+            /* Untuk membuat container berada di tengah-tengah */
         }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
 
         .navbar {
             background-color: darkseagreen;
@@ -43,6 +52,8 @@
             width: 100%;
             padding: 10px 0;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            /* Memastikan navbar tampil di atas konten lain */
         }
 
         .navbar ul {
@@ -62,26 +73,24 @@
             text-decoration: none;
         }
 
-        .content {
-            padding: 20px;
-            margin-top: 60px;
-            /* Atur margin top untuk memberi ruang di bawah navbar */
-        }
-
         .img {
-            max-width: 100px;
-            /* height:auto; */
+            width: 100px;
+            height: auto;
             float: right;
-            margin-left: 10px;
+            /*             padding: 10px; */
+            align-items: center;
+            margin: 20px auto 0px auto;
             background-color: none;
             /* Jarak antara gambar dan teks */
-            transform: scale(3.5);
+            transform: scale(2.5);
             /* Memperbesar gambar sebesar 1.5 kali */
 
         }
 
         body {
-            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            /* background-color: #f0f0f0; */
             background-size: cover;
             /* Memastikan gambar mengisi seluruh area latar belakang */
             background-repeat: no-repeat;
@@ -95,15 +104,72 @@
             /* Atur jarak antar konten di dalam kolom */
         }
 
-        /* Gaya untuk layar yang lebih kecil, misalnya iPhone */
-        @media (max-width: 576px) {
+        .col-5 {
+            padding: 20px;
 
-            .col-9,
-            .col-4,
-            .col-6 {
-                width: 100%;
-                /* Menggunakan kolom penuh pada layar kecil */
+
+        }
+
+        /* Tambahkan kelas sticky untuk navbar saat di-scroll */
+        .sticky {
+            position: fixed;
+            top: 0;
+            animation: slideDown 0.5s ease-in-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
             }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .small-text {
+            font-size: 12px;
+            /* Atur ukuran font yang lebih kecil */
+        }
+
+
+        /*       tablecss */
+        .tables {
+            margin: 20px auto 0px auto;
+            width: 95%;
+            max-width: 1200px;
+        }
+
+        .table {
+            /* background-color: #f0f0f0; */
+            border-collapse: collapse;
+            width: 100%;
+            align-items: center;
+        }
+
+        .table th {
+            border-bottom: 1px solid black;
+            padding: 8px;
+            text-align: center;
+            /* vertical-align: top; */
+            /* white-space: pre-wrap; */
+            /* Atur agar teks pindah ke baris baru jika melebihi lebar sel */
+        }
+
+        .table td {
+            padding: 8px;
+            text-align: center;
+            vertical-align: top;
+            white-space: pre-wrap;
+            /* Atur agar teks pindah ke baris baru jika melebihi lebar sel */
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            /* border-style: hidden; */
+        }
+        .table th h1{
+            padding: 10px;
+            text-align: left;
+            justify-content: left;
         }
     </style>
     <script>
@@ -123,51 +189,92 @@
     <header class="navbar">
         <nav>
             <ul>
-                <li><a href="#">Beranda</a></li>
-                <li><a href="#">Tentang Kami</a></li>
-                <li><a href="#">Kontak</a></li>
+                <li><a href="#">Wira Laundry Home page</a></li>
+
             </ul>
         </nav>
     </header>
+
     <div class="container">
         <div class="row">
             <div class="col-9">
-                <H1 style="font-size:80px">
+                <H1 style="font-size:70px">
                     Hello Friends!!!
                 </H1>
             </div>
-            <div class="col-4">
-                <h3>
-                    Hii, Welcome to wira laundry page
-                </h3><br> This website just made from admin and kurir, I hope This usefull to make easy things to do.
-                <a href="/home" class="btn btn-secondary">Go to Index Page</a>
-            </div>
             <div class="col-6">
-                <img src="../static/icon02.png" class="img" alt="...">
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-9">
-                <H1 style="font-size:80px">
-                    MORE INFORMATIONS
-                </H1>
-            </div>
-            <div class="col-4">
                 <h3>
-                    WIRA LAUNDRY 
-                </h3><br> WIRA LAUNDRY adalah proses mencuci pakaian kotor, agar bersih dan siap untuk digunakan kembali.
-                dan menyediakan Layanan FREE DELIVERY AND PICKUP LAUNDRY.
-                <!-- <a href="/home" class="btn btn-secondary">Go to Index Page</a> -->
+                    Welcome to wira laundry page
+                </h3>
+                <p style="font-family: Arial, Helvetica, sans-serif; font-size:15px">This website just made from admin
+                    and kurir, I hope This usefull to make easy things to do.
+                    keep going, List Ur Name to pick up ur Laundry. <b>DOWN HERE</b></p>
+                <div class="col-12">
+                    <a href="/home" class="btn btn-secondary">List Customer</a>
+                </div>
             </div>
-            <div class="col-6">
-                <img src="../static/icon03.png" class="img" alt="...">
+            <div class="col-5">
+                <img src="../static/icon05.png" class="img" alt="...">
             </div>
         </div>
     </div>
 
+    <!-- tablenya -->
+    <div class="tables">     
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style=" border-style: hidden;"><h1>
+                    Layanan Kami
+                    </h1></th>
+                </tr>
+                <tr>
+                    <th><img style="width: 85%; height: auto;" src="../static/icon02.png" alt=""></th>
+                    <th><img  style="width: 90%; height: auto;" src="../static/02blackshirt.png" alt=""></th>
+                    <th><img style="width: 90%; height: auto;" src="../static/icon03.png" alt=""></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>Wira Laundry</b></td>
+                    <td><b>Free Delivery</b></td>
+                    <td><b>Everthing Care</b></td>
+                </tr>
+                <tr>
+                    <td>Laundy Kiloan, minimal 3Kg penjemputan Laundry, jika laundry kurang dari minimal tersebut, maka akan terhitung 3Kg</td>
+                    <td>Kami menyediakan antar & jemput laundry Customer dimana pun berada, its free
+                    </td>
+                    <td>Karpet dan gorden di meter sesuai panjang dan lebarnya, kami juga menerima Boneka, Bedcover, Dll
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-style: hidden;"><a href="/home" class="btn btn-secondary">List Customer</a></td>
+                    <td style="border-style: hidden;"><a href="/home" class="btn btn-secondary">List Customer</a></td>
+                    <td style="border-style: hidden;"><a href="/home" class="btn btn-secondary">List Customer</a></td>
+                </tr>
 
+            </tbody>
+        </table>
+    </div>
+    <!-- endtable -->
+
+    
+
+
+
+    <br>
+    <div class="card text-center">
+        <!--   <div class="card-header">
+    More Informations
+  </div> -->
+        <div class="card-body text-muted">
+            <h5 class="card-title">CV WIRA INDONESIA PERKASA</h5>
+            <p style="font-family: Arial, Helvetica, sans-serif; font-size:15px" class="card-text">copyright 2023 | wira
+                laundry</p>
+
+        </div>
+
+    </div>
 
 
 </body>
